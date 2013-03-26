@@ -1,0 +1,37 @@
+$11.4 billion lost in output [1]
+$1.1 trillion output in NYC per year [2]
+34.5 hours per week for an average NYC worker [3]
+[2] / [3] ==> 613,154,961 dollars/hour (A)
+From [1] / (A), 18.564 hours of NYC productivity lost (B)
+7,266,189 employed adults in NYC [4]
+From (B) * [4], 134,891,800 man hours lost
+
+
+Cost to NYC
+$11.4 billion in lost output
+18.564 hours of productivity
+134.9 million man hours
+$141 million in charitable contributions by companies (national) [5]
+$1.77 billion in federal aid package [6]	
+
+Comparisons
+	Dollar output
+		$19,597 to educate a student for one year in the NYC School District [7]
+		$10-12b for a sea wall
+		$25 million for beach fill at Coney Island
+		$60 million (average) for elevated sand dunes on Rockaway Peninsula
+		$250 million to strengthen NYC electrical grid
+		$115m marsh restoration and preservation
+
+	Man hours
+		7m to build the Empire State building [8]
+
+
+[1] http://www.moodys.com/PublishingImages/MCO/ProductAttachments/Econ_Impact_of_Sandy.pdf
+[2] http://www.theatlanticcities.com/jobs-and-economy/2011/09/25-most-economically-powerful-cities-world/109/#slide2
+[3] https://www.labor.ny.gov/stats/nyc/
+[4] http://quickfacts.census.gov/qfd/states/36/3651000.html
+[5] http://bclc.uschamber.com/site-page/hurricane-sandy-corporate-aid-tracker
+[6] http://www.nytimes.com/2013/02/06/nyregion/first-part-of-hurricane-sandy-aid-is-to-be-released.html
+[7] http://schoolsofthought.blogs.cnn.com/2012/06/21/which-places-spent-most-per-student-on-education/
+[8] http://www.npr.org/programs/morning/features/patc/empirestate/index.html
