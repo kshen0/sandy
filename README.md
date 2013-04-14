@@ -1,14 +1,10 @@
 Parallax Scrolling
 ==================
 
-### The source code which accompanies the parallax scrolling tutorial in Smashing Magazine, July 2011 
+### Parallax scrolling effect adapted from the tutorial in Smashing Magazine, July 2011 
 
 
 # INTRODUCTION: 
-Welcome! And you are most welcome. These files accompany a tutorial in Smashing Magazine which explains the finer points of parallax scrolling. They will make most sense when read/used in conjunction with that article. I have used a couple of bits from the lovely HTML5 Boilerplate, but the rest is my own work. Feel free to hack it to shreds for your own purposes :)
-
-Email me The Simpsons reference in the source code and you win a free tweet. Or something. Probably.
-
 [Read the full tutorial over at smashingmagazine.com/](http://www.smashingmagazine.com/)
 
 
