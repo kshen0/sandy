@@ -13,6 +13,16 @@ $(document).ready(function(){
 	console.log("loaded");
 	// Cache the Window object
 	$window = $(window);
+
+	// Set the spacing between facts
+	var windowHeight = $window.height();
+	var totalHeight = 6 * windowHeight;
+	$(".fact").css("margin", "0 0 " + windowHeight + "px 0");
+	$("article").css({
+		"margin-bottom": windowHeight + "px",
+		"min-height": totalHeight + "px"
+	});
+	$("#container").css("min-height", totalHeight + 200 + "px");
 	
 	// Cache the Y offset and the speed of each sprite
 	$('[data-type]').each(function() {	
@@ -36,6 +46,7 @@ $(document).ready(function(){
 	    $(window).scroll(function() {
 	
 			// If this section is in view
+			console.log($window.scrollTop());
 			if ( ($window.scrollTop() + $window.height()) > (topOffset) &&
 				 ( (topOffset + $self.height()) > $window.scrollTop() ) ) {
 	
@@ -95,7 +106,7 @@ function positionSprites(section) {
 		var yPos = yPos + $sprite.data('offsetY');
 		var coords = xPos + ' ' + yPos + 'px';
 		
-		console.log(yPos);
+		//console.log(yPos);
 		$sprite.css({ backgroundPosition: coords });													
 		$sprite.find('h1').css({
 			'top': yPos,
