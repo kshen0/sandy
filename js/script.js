@@ -8,6 +8,8 @@
  * 		   @richardshepherd   
  */
 
+var currentSection = 0;
+
 // On your marks, get set...
 $(document).ready(function(){
 	console.log("loaded");
@@ -17,12 +19,19 @@ $(document).ready(function(){
 	// Set the spacing between facts
 	var windowHeight = $window.height();
 	var totalHeight = 6 * windowHeight;
+
+	$(".story").css("height", windowHeight + "px");
+	$(".left-side").css("height", totalHeight + "px");
+	$("#container").css("height", totalHeight + "px");
+
+
 	$(".fact").css("margin", "0 0 " + windowHeight + "px 0");
+	/*
 	$("article").css({
-		"margin-bottom": windowHeight + "px",
-		"min-height": totalHeight + "px"
+		"margin-bottom": windowHeight + "px"
 	});
-	$("#container").css("min-height", totalHeight + 200 + "px");
+*/
+	$("#container").css("height", totalHeight + 200 + "px");
 	
 	// Cache the Y offset and the speed of each sprite
 	$('[data-type]').each(function() {	
@@ -46,10 +55,11 @@ $(document).ready(function(){
 	    $(window).scroll(function() {
 	
 			// If this section is in view
-			console.log($window.scrollTop());
+			//console.log($window.scrollTop());
 			if ( ($window.scrollTop() + $window.height()) > (topOffset) &&
 				 ( (topOffset + $self.height()) > $window.scrollTop() ) ) {
-	
+				var id = $self[0].id;
+
 				// Scroll the background at var speed
 				// the yPos is a negative value because we're scrolling it UP!								
 				var yPos = -($window.scrollTop() / $self.data('speed')); 
@@ -61,6 +71,7 @@ $(document).ready(function(){
 				
 				// Put together our final background position
 				var coords = '50% '+ yPos + 'px';
+
 
 				// Move the background
 				$self.css({ backgroundPosition: coords });
@@ -105,10 +116,15 @@ function positionSprites(section) {
 		var yPos = -($window.scrollTop() / $sprite.data('speed'));					
 		var yPos = yPos + $sprite.data('offsetY');
 		var coords = xPos + ' ' + yPos + 'px';
+		//console.log(coords);
 		
-		//console.log(yPos);
 		$sprite.css({ backgroundPosition: coords });													
+		// scroll sprites within the sprites
 		$sprite.find('h1').css({
+			'top': yPos,
+			'left': xPos
+		});
+		$sprite.find('div').css({
 			'top': yPos,
 			'left': xPos
 		});
