@@ -12,61 +12,13 @@ var labelCoords = {
 	"Brooklyn": "(230, 330)",
 }
 // Data for the proposed storm damage prevention projects
-var projects = {
-	"The Narrows Barrier": {
-		"lineData": [ [{ "x": 190, "y": 386}, { "x": 196, "y": 380}],
-					  [{ "x": 187, "y": 388.5}, {"x": 183, "y": 392}] ],
-		"clickLine": [ { "x": 180, "y": 394}, { "x": 199, "y": 376} ],
-		"cost": "6.5 billion",
-		"description": "A rolling gates design just north of the Verrazano-Narrows Bridge. A pair of curved rolling sector gates would span an 870-foot opening in the center, adjoined by 16 lifting gates with a span of 130 feet, and two lifting gates with a span of 165 feet.",
-		"link": "http://biotech.law.lsu.edu/climate/ocean-rise/against-the-deluge/15-verrazano_narrows_barrier.pdf"
-	},
-	"NY - NJ Outer Harbor Gateway": {
-		"lineData": [ [{ "x": 263, "y": 519}, { "x": 265, "y": 508}], 
-					  [{ "x": 266, "y": 504}, { "x": 270, "y": 480}], 
-					  [{ "x": 271, "y": 475}, { "x": 272, "y": 469}], 
-					  [{ "x": 273, "y": 465}, { "x": 277, "y": 432}], 
-					  [{ "x": 278, "y": 429}, { "x": 286, "y": 426}]
-					],
-		"clickLine": [ { "x": 263, "y": 519}, { "x": 286, "y": 426} ],
-		"cost": "5.9 billion",
-		"description": "A five-mile long series of underwater gates stretching from Sandy Hook to the Rockaways. The design leaves three openings for ships to pass through.",
-		"link": "http://biotech.law.lsu.edu/climate/ocean-rise/against-the-deluge/17-outer_harbor_gateway.pdf"
-	},
-	"Beach Fill Project": {
-		"lineData": [ [{ "x": 228, "y": 421}, { "x": 239, "y": 421.5},
-					   { "x": 257, "y": 416}], 
-					],
-		"clickLine": [ { "x": 228, "y": 421}, { "x": 257, "y": 416} ],
-		"cost": "250 million",
-		"description": "The process by which sediment (usually sand) lost through longshore drift or erosion is replaced from sources outside of the eroding beach. The first project was implemented on Coney Island in 1922-1923 and is currently maintained.",
-		"link": "http://en.wikipedia.org/wiki/Beach_nourishment"
-	},
-	"Elevated Sand": {
-		"lineData": [ [{ "x": 290, "y": 435}, { "x": 305, "y": 425}, 
-					   { "x": 312, "y": 418}, { "x": 320, "y": 415},
-					   { "x": 330, "y": 407}, { "x": 340, "y": 400}],					
-					],
-		"clickLine": [ { "x": 290, "y": 435}, { "x": 340, "y": 400} ],
-		"cost": "20-100 million",
-		"description": "An incomplete study suggests combating beach erosion on the Rockaways' beaches has seen periodic funding cuts since 2003.",
-		"link": "http://www.thenewyorkworld.com/2012/11/15/john-cori/"
-	},
-	"Marsh Restoration": {
-		"circleData": [{"cx": 350, "cy": 350, "radius": 5}],
-		"clickLine": [ { "x": 345, "y": 345}, { "x": 355, "y": 355} ],
-		"cost": "150 million",
-		"description": "Protecting Jamaica Bay's marshes, which act as natural sponges during storms, by upgrading waste treatment and preventing the marshes from disappearing into the water altogether.",
-		"link": "http://www.nytimes.com/2011/07/31/nyregion/jamaica-bay-a-wild-place-on-the-edge-of-change.html?pagewanted=all"
-	},
-	"ConEd Infrastructure Upgrade": {
-		"circleData": [{"cx": 205, "cy": 260, "radius": 5}],
-		"clickLine": [ { "x": 200, "y": 255}, { "x": 210, "y": 265} ],
-		"cost": "250 million",
-		"description": "Beefing up Manhattan's electrical grid to better withstand storms.",
-		"link": "http://www.nytimes.com/2012/09/11/nyregion/new-york-faces-rising-seas-and-slow-city-action.html?pagewanted=1&_r=1&ref=nyregion"
-	},
-}
+$.ajaxSetup({"async": false});
+var projects = {};
+$.getJSON("../data/proposed_projects.json", function(result) {
+	projects = result;
+});
+$.ajaxSetup({"async": true});
+
 
 /*
 // Places into parallax scrolling
