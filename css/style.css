@@ -131,8 +131,8 @@ article .fact {
 
 #modal {
 	top: 400px;
-	left: 400px;
-	width: 200px;
+	left: 350px;
+	width: 250px;
 	min-height: 200px;
 	position: absolute;
 	background: url(../images/graph_paper.png) repeat;
@@ -141,9 +141,9 @@ article .fact {
 }
 
 #modal-text {
-	width: 190px;
-	min-height: 190px;
-	margin: auto auto;
+	width: 236px;
+	min-height: 186px;
+	margin: 8px auto 0 auto;
 	opacity: 0.0;
 }
 

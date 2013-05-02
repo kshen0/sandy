@@ -14,13 +14,12 @@ var labelCoords = {
 // Data for the proposed storm damage prevention projects
 var projects = {
 	"The Narrows Barrier": {
-		"lineData": [ [{ "x": 190, "y": 386}, { "x": 196, "y": 380}] ],
-		"circleData": [{"cx": 187, "cy": 388.5, "radius": 1.5}, 
-	   					  {"cx": 183, "cy": 392, "radius": 1.5}],
+		"lineData": [ [{ "x": 190, "y": 386}, { "x": 196, "y": 380}],
+					  [{ "x": 187, "y": 388.5}, {"x": 183, "y": 392}] ],
 		"clickLine": [ { "x": 180, "y": 394}, { "x": 199, "y": 376} ],
 		"cost": "6.5 billion",
 		"description": "A rolling gates design just north of the Verrazano-Narrows Bridge. A pair of curved rolling sector gates would span an 870-foot opening in the center, adjoined by 16 lifting gates with a span of 130 feet, and two lifting gates with a span of 165 feet.",
-		"link": "http://www.pbs.org/newshour/rundown/2012/11/engineers-draw-barriers-to-protect-new-york-from-another-sandy.html"
+		"link": "http://biotech.law.lsu.edu/climate/ocean-rise/against-the-deluge/15-verrazano_narrows_barrier.pdf"
 	},
 	"NY - NJ Outer Harbor Gateway": {
 		"lineData": [ [{ "x": 263, "y": 519}, { "x": 265, "y": 508}], 
@@ -32,8 +31,41 @@ var projects = {
 		"clickLine": [ { "x": 263, "y": 519}, { "x": 286, "y": 426} ],
 		"cost": "5.9 billion",
 		"description": "A five-mile long series of underwater gates stretching from Sandy Hook to the Rockaways. The design leaves three openings for ships to pass through.",
-		"link": "http://www.pbs.org/newshour/rundown/2012/11/engineers-draw-barriers-to-protect-new-york-from-another-sandy.html"
-	}
+		"link": "http://biotech.law.lsu.edu/climate/ocean-rise/against-the-deluge/17-outer_harbor_gateway.pdf"
+	},
+	"Beach Fill Project": {
+		"lineData": [ [{ "x": 228, "y": 421}, { "x": 239, "y": 421.5},
+					   { "x": 257, "y": 416}], 
+					],
+		"clickLine": [ { "x": 228, "y": 421}, { "x": 257, "y": 416} ],
+		"cost": "250 million",
+		"description": "The process by which sediment (usually sand) lost through longshore drift or erosion is replaced from sources outside of the eroding beach. The first project was implemented on Coney Island in 1922-1923 and is currently maintained.",
+		"link": "http://en.wikipedia.org/wiki/Beach_nourishment"
+	},
+	"Elevated Sand": {
+		"lineData": [ [{ "x": 290, "y": 435}, { "x": 305, "y": 425}, 
+					   { "x": 312, "y": 418}, { "x": 320, "y": 415},
+					   { "x": 330, "y": 407}, { "x": 340, "y": 400}],					
+					],
+		"clickLine": [ { "x": 290, "y": 435}, { "x": 340, "y": 400} ],
+		"cost": "20-100 million",
+		"description": "An incomplete study suggests combating beach erosion on the Rockaways' beaches has seen periodic funding cuts since 2003.",
+		"link": "http://www.thenewyorkworld.com/2012/11/15/john-cori/"
+	},
+	"Marsh Restoration": {
+		"circleData": [{"cx": 350, "cy": 350, "radius": 5}],
+		"clickLine": [ { "x": 345, "y": 345}, { "x": 355, "y": 355} ],
+		"cost": "150 million",
+		"description": "Protecting Jamaica Bay's marshes, which act as natural sponges during storms, by upgrading waste treatment and preventing the marshes from disappearing into the water altogether.",
+		"link": "http://www.nytimes.com/2011/07/31/nyregion/jamaica-bay-a-wild-place-on-the-edge-of-change.html?pagewanted=all"
+	},
+	"ConEd Infrastructure Upgrade": {
+		"circleData": [{"cx": 205, "cy": 260, "radius": 5}],
+		"clickLine": [ { "x": 200, "y": 255}, { "x": 210, "y": 265} ],
+		"cost": "250 million",
+		"description": "Beefing up Manhattan's electrical grid to better withstand storms.",
+		"link": "http://www.nytimes.com/2012/09/11/nyregion/new-york-faces-rising-seas-and-slow-city-action.html?pagewanted=1&_r=1&ref=nyregion"
+	},
 }
 
 /*
@@ -127,7 +159,8 @@ function drawProjects() {
 	var lineFunction = d3.svg.line()
 		.x(function(d) {return d.x;})
 		.y(function(d) {return d.y;})
-		.interpolate("linear");
+		.interpolate("cardinal")
+		.tension(.8);
 
 	/*
 	var circleFunction = d3.svg.circle()
@@ -153,6 +186,7 @@ function drawProjects() {
 						  .attr("class", "project")
 		}
 
+		// Append the invisible fat line that makes the clickable g larger
 		g.append("path")
 			.attr("d", lineFunction(p["clickLine"]))
 			.attr("class", "invis");
@@ -169,7 +203,7 @@ function drawProjects() {
 				.attr("cx", function (d) { return d.cx; })
 				.attr("cy", function (d) { return d.cy; })
 				.attr("r", function (d) { return d.radius; })
-				.attr("class", "project");
+				.attr("class", "project-circle");
 
 			g.selectAll("circle")
 				.data(p["circleData"])
@@ -178,7 +212,6 @@ function drawProjects() {
 		}
 
 		var modalText = $("#modal-text");
-		//$("#" + nameDashes)	
 		d3.selectAll(".hover-entity")
 			.on("click", function() {
 				freezeDescription = !freezeDescription;
@@ -197,14 +230,20 @@ function drawProjects() {
 	// set styles for all "project" paths
 	svg.selectAll(".project")
 		.attr("stroke", "#c0392b")
-		.attr("stroke-width", 2)
-		.attr("fill", "#c0392b");
+		.attr("stroke-width", 2);
+		//.attr("fill", "#c0392b");
+
+	svg.selectAll(".project-circle")
+		.attr("stroke", "#c0392b")
+		.attr("fill", "#c0392b")
+		.attr("opacity", "0.7")
+		.attr("stroke-width", 2);
 
 	// set styles for all "invis" paths
 	svg.selectAll(".invis")
 		.attr("stroke", "#c0392b")
-		.attr("stroke-width", 30)
-		.attr("stroke-opacity", "0");
+		.attr("stroke-width", 20)
+		.attr("stroke-opacity", "0.0");
 };
 
 function showText(modalText, that) {
