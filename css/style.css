@@ -126,9 +126,14 @@ article .fact {
  * SVG styles
 */
 svg {
+	position: relative;
 	border: solid 1px;
 	background-color: #DAE7E7;
 	fill: #DAE7E7;
+}
+
+svg text {
+	fill: #000;
 }
 
 svg .Staten-Island-water {
