@@ -11,14 +11,15 @@
 </head>
 
 <body>
+<!--
   <div id="main" role="main">
-  	<section class="story" id="container" data-speed="9" data-type="background" data-offsetY="0">
+  	<section class="story" id="container" data-speed="13" data-type="background" data-offsetY="0">
 		<div class="left-side" data-type="sprite" data-offsetY="0" data-Xposition="2%" data-speed="-20">
 			<h1>$11,382,800,000</h1>
 		</div>
 		<article>
 			<section class="fact">
-				<h2 class="emphasis">The total economic output lost in New York city during Hurricane Sandy was $11.38 billion dollars. What does that sum of money mean?</h2> 
+				<h2 class="emphasis">The total economic output lost in New York city during Hurricane Sandy was $11.38 billion dollars<sup><a href="http://www.moodys.com/PublishingImages/MCO/ProductAttachments/Econ_Impact_of_Sandy.pdf">[1]</a></sup>. What does that sum of money mean?</h2> 
 			</section>
 			<section class="fact">
 				<h2 class="fact-header">6 months of operating the NYC public school system</h2>
@@ -42,12 +43,15 @@
 			</section>
 		</article>
 	</section>
+-->
   </div> <!-- // End of #main -->
 
 
 
   <script src='js/libs/jquery-1.9.1.min.js'></script>
+  <script src="js/libs/d3.v3.min.js"></script>
+  <script src="js/libs/topojson.v0.min.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/libs/snowfall.jquery.js"></script>
+  <script src="js/render_map.js"></script>
 </body>
 </html>

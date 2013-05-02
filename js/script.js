@@ -19,18 +19,13 @@ $(document).ready(function(){
 	// Set the spacing between facts
 	var windowHeight = $window.height();
 	var totalHeight = 6 * windowHeight;
+	var cutoffHeight = $(document).height() - 1.5 * windowHeight;
+	var cutoffReached = false;
 
 	$(".story").css("height", windowHeight + "px");
-	$(".left-side").css("height", totalHeight + "px");
-	$("#container").css("height", totalHeight + "px");
-
-
+	$(".left-side").css("height", (totalHeight) + "px");
+	$("#container").css("height", (totalHeight) + "px");
 	$(".fact").css("margin", "0 0 " + windowHeight + "px 0");
-	/*
-	$("article").css({
-		"margin-bottom": windowHeight + "px"
-	});
-*/
 	$("#container").css("height", totalHeight + 200 + "px");
 	
 	// Cache the Y offset and the speed of each sprite
@@ -62,7 +57,9 @@ $(document).ready(function(){
 
 				// Scroll the background at var speed
 				// the yPos is a negative value because we're scrolling it UP!								
-				var yPos = -($window.scrollTop() / $self.data('speed')); 
+				var windowTop = $window.scrollTop();
+				var yPos = -(windowTop / $self.data('speed')); 
+
 				
 				// If this element has a Y offset then add it on
 				if ($self.data('offsetY')) {
@@ -72,31 +69,21 @@ $(document).ready(function(){
 				// Put together our final background position
 				var coords = '50% '+ yPos + 'px';
 
-
 				// Move the background
 				$self.css({ backgroundPosition: coords });
-				
-			
+
 				positionSprites($self);
-				// Check for any Videos that need scrolling
+
 				/*
-				$('[data-type="video"]', $self).each(function() {
-					
-					// Cache the video
-					var $video = $(this);
-					
-					// There's some repetition going on here, so 
-					// feel free to tidy this section up. 
-					var yPos = -($window.scrollTop() / $video.data('speed'));					
-					var coords = (yPos + $video.data('offsetY')) + 'px';
-	
-					$video.css({ top: coords });													
-					
-				}); // video	
+				console.log(cutoffHeight);
+				console.log(windowTop);
 				*/
-			
+				if (!cutoffReached && windowTop > cutoffHeight) {
+					cutoffReached = true;
+				}
 			}; // in view
-	
+		
+
 		}); // window scroll
 			
 	});	// each data-type
