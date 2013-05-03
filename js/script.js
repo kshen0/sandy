@@ -19,14 +19,15 @@ $(document).ready(function(){
 	// Set the spacing between facts
 	var windowHeight = $window.height();
 	var totalHeight = 6 * windowHeight;
-	var cutoffHeight = $(document).height() - 1.5 * windowHeight;
+	var cutoffHeight = $(document).height() - windowHeight;
 	var cutoffReached = false;
 
+	/*
 	$(".story").css("height", windowHeight + "px");
 	$(".left-side").css("height", (totalHeight) + "px");
-	$("#container").css("height", (totalHeight) + "px");
-	$(".fact").css("margin", "0 0 " + windowHeight + "px 0");
-	$("#container").css("height", totalHeight + 200 + "px");
+	*/
+	//$(".fact").css("margin", "0 0 " + windowHeight + "px 0");
+	$(".fact").css("margin", "0 0 200px 0");
 	
 	// Cache the Y offset and the speed of each sprite
 	$('[data-type]').each(function() {	
@@ -80,6 +81,10 @@ $(document).ready(function(){
 				*/
 				if (!cutoffReached && windowTop > cutoffHeight) {
 					cutoffReached = true;
+					/*
+					$(".map-parent").animate({"opacity": 1}, 1500);
+					$("article").animate({"opacity": 0}, 1500);
+					*/
 				}
 			}; // in view
 		

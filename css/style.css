@@ -6,6 +6,7 @@
 
 body {
 	font-family: 'Futura', 'Helvetica', 'Arial', sans-serif;
+	height: 100%;
 }
 
 h2 { 
@@ -21,14 +22,23 @@ h2 a {
 	font-size: 8pt;
 }
 
+#main {
+	position: relative;
+	height: 2300px;
+}
+
 #container {
 	background: url(../images/skyline_transparent.jpg) 50% 0 no-repeat fixed;
 	background-color: #000;
 	background-size: 100%;
-	/*background: url(../images/wavegrid.png) 50% 0 repeat fixed;*/
+	/*
+	background: url(../images/wavegrid.png) 50% 0 repeat fixed;*/
+	/*
 	min-height: 4800px;
+	*/
+	height: 2300px;
 	min-width: 1000px;
-	padding: 15px 0 0 0;
+	padding: 0px 0 0 0;
 }
 
 #container article {
@@ -47,7 +57,7 @@ h2 a {
 
 	/* Added styles */
 	/*height: 3200px;*/
-	width: 500px;
+	width: 540px;
 	height: 100%;
 	z-index: 3;
 }
@@ -59,8 +69,9 @@ article .fact {
 	*/
 	position: relative;
 	padding: 15px 15px 0 15px;
-	width: 470px;
+	width: 510px;
 	border: solid 1px;
+	text-align: right;
 }
 
 #intro {
@@ -89,14 +100,15 @@ article .fact {
 	/*background: url(../images/photo.png) transparent 40% 100px no-repeat fixed; */
 	/*min-height: 1000px; */
 	padding: 0; 
-	margin: 0; 
 	width: 100%; 
 	max-width: 1920px; 
 	position: absolute; 
 	margin: 0 auto; 
 
 	/* Added styles */
+	/*
 	min-height: 4800px;
+	*/
 	height: 100%;
 	text-shadow: 1px 1px 0px #000;
 }
@@ -125,13 +137,29 @@ article .fact {
 /*
  * Map
 */
-#map {
+.map-parent {
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	z-index: 20;
+	opacity: 1;
+}
+
+.map {
 	position: relative;
+	float: right;
+	margin: 0 20px 0 0;
+	height: 600px;
+	width: 600px;
 }
 
 #modal {
+	/*
 	top: 400px;
 	left: 350px;
+	*/
+	bottom: 0;
+	right: 0;
 	width: 250px;
 	min-height: 200px;
 	position: absolute;
