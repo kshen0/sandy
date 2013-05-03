@@ -5,14 +5,16 @@
  */
 
 body {
+	/*
 	font-family: 'Futura', 'Helvetica', 'Arial', sans-serif;
+	*/
+	font-family: 'Roboto Slab', 'Garamond', serif; 
 	height: 100%;
 }
 
 h2 { 
 	color: #fff; 
-	font-family: 'Futura'; 
-	font-size: 18pt; 
+	font-size: 16pt; 
 	margin: 0px 0 0 0; 
 	line-height: 1em; 
 }
@@ -45,7 +47,7 @@ h2 a {
 	background: url(../images/grain_transparent.png) repeat;
 	color: #fff; 
 
-	margin: 0 20px 0 0; 
+	margin: 0 0px 0 0; 
 	text-shadow: 0 -1px 0 rgba(0,0,0,0.5); 
 	line-height: 1.5em; 
 	color: #fff; 
@@ -57,27 +59,24 @@ h2 a {
 
 	/* Added styles */
 	/*height: 3200px;*/
-	width: 540px;
+	width: 600px;
 	height: 100%;
 	z-index: 3;
 }
 
 article .fact {
-	/*
-	position: absolute;
-	bottom: 0px;
-	*/
 	position: relative;
 	padding: 15px 15px 0 15px;
-	width: 510px;
-	border: solid 1px;
+	width: 569px;
+	float: right;
 	text-align: right;
+	background-color: rgba(0, 0, 0, 0.2);
+	margin-left: 2px;
 }
 
 #intro {
 	position: relative;
 	top: 0px;
-	/*border: solid 1px;*/
 	width: 100%;
 }
 
@@ -115,7 +114,6 @@ article .fact {
 
 #container .left-side h1 {
 	position: fixed;
-	font-family: 'Futura', 'Arial', 'sans-serif';
 	font-size: 36pt;
 	color: #fff;
 }
@@ -148,9 +146,13 @@ article .fact {
 .map {
 	position: relative;
 	float: right;
-	margin: 0 20px 0 0;
+	margin: 0 0px 0 0;
 	height: 600px;
 	width: 600px;
+}
+
+.map p {
+	font-size: 8pt;
 }
 
 #modal {
@@ -181,12 +183,24 @@ article .fact {
    box-shadow:         inset 0 0 1px #666666;
 }
 
+.shadow2 {
+	-moz-box-shadow:inset 0px 0px 3px 1px rgba(0,0,0,0.1);
+    -webkit-box-shadow:inset 0px 0px 3px 1px rgba(0,0,0,0.1);
+    box-shadow:inset 0px 0px 3px 1px rgba(0,0,0,0.1);
+
+}
+
+.shadow-outer {
+	-moz-box-shadow: 0 0 0px 1px #474747;
+	-webkit-box-shadow: 0 0 0px 1px #474747;
+	box-shadow: 0 0 0px 1px #474747;
+}
+
 /*
  * SVG styles
 */
 svg {
 	position: relative;
-	border: solid 1px;
 	background-color: #DAE7E7;
 	fill: #DAE7E7;
 }

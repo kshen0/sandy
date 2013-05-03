@@ -175,6 +175,7 @@ function drawProjects() {
 				if (!freezeDescription) {
 					modalText.animate({"opacity": "0"}, function() {
 						modalText.html("");
+						$("body").css({"cursor": "default", "cursor": "auto"});
 					});
 				}
 			});
@@ -208,5 +209,8 @@ function showText(modalText, that) {
 				 .append("<h3>Estimated cost: $" + p["cost"] + "</h3>")
 				 .append("<br><p>" + p["description"] + "</p>");
 		modalText.animate({"opacity": "1"});
+
+		// set cursor to hand
+		$("body").css({"cursor": "hand", "cursor": "pointer"});
 	}
 };
